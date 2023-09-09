@@ -60,12 +60,10 @@ export const insertPasskey = async (payload: Passkey) => {
 
 export const verifyPasskey = async (passkey: string) => {
   const passkeyVal = db.query<Passkey, []>(`select * from passkeys;`).get();
-  return (
-    password
-      .verify(passkey, passkeyVal?.passkey)
-      .then((validPasskey) => (validPasskey ? passkey : null))
-      .catch(() => null)
-  );
+  return password
+    .verify(passkey, passkeyVal?.passkey)
+    .then((validPasskey) => (validPasskey ? passkey : null))
+    .catch(() => null);
 };
 
 export const getAllPleinPasswords = (passkey: string) => {
