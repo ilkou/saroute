@@ -29,7 +29,7 @@ export const init = async () => {
   const totalPasswords = await countPasswords();
   const totalPasskeys = await countPasskeys();
   const hasReadyEnv = totalPasskeys > 0;
-  return { totalPasswords, hasReadyEnv };
+  return { totalPasswords, totalPasskeys, hasReadyEnv };
 };
 
 export const countPasskeys = async () => {

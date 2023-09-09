@@ -1,14 +1,8 @@
-import {
-  countPasskeys,
-  generateRandomPassword,
-  insertPasskey,
-  onExit,
-} from "../lib";
+import { generateRandomPassword, insertPasskey, onExit } from "../lib";
 import clipboardy from "clipboardy";
 
-export async function setupEnv(prompts: any) {
-  const passkeys = await countPasskeys();
-  if (passkeys > 0) {
+export async function setupEnv(prompts: any, totalPasskeys: number) {
+  if (totalPasskeys > 0) {
     console.log("Everything is already configured!");
     onExit();
   }

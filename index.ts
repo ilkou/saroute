@@ -4,10 +4,10 @@ import { setupEnv } from "./src/setup-env";
 
 const prompts = require("prompts");
 
-const { totalPasswords, hasReadyEnv } = await init();
+const { totalPasswords, totalPasskeys, hasReadyEnv } = await init();
 
 if (hasReadyEnv) {
   await managePasswords(prompts, totalPasswords);
 } else {
-  await setupEnv(prompts);
+  await setupEnv(prompts, totalPasskeys);
 }
